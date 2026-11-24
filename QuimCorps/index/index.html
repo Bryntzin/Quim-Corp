@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quim Corp - Gestão Empresarial</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- TELA DE LOGIN -->
+    <section id="login" class="login">
+        <form id="formLogin" class="login-caixa">
+            <h1>Quim Corp</h1>
+            <p>Gestão empresarial</p>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="Digite seu e-mail" required>
+            <label for="senha">Senha</label>
+            <input id="senha" type="password" placeholder="Digite sua senha" required>
+            <button type="submit">Entrar</button>
+            <p id="erroLogin"></p>
+        </form>
+    </section>
+
+    <!-- SISTEMA -->
+    <div id="sistema" hidden>
+        <header>
+            <h1>Quim Corp</h1>
+            <button id="sair">Sair</button>
+        </header>
+
+        <nav>
+            <button data-pagina="inicio">Início</button>
+            <button data-pagina="funcionarios">Funcionários</button>
+            <button data-pagina="financeiro">Financeiro</button>
+            <button data-pagina="produtos">Produtos e estoque</button>
+            <button data-pagina="producao">Produção</button>
+            <button data-pagina="maquinas">Máquinas</button>
+            <button data-pagina="turnos">Turnos</button>
+            <button data-pagina="marketing">Marketing</button>
+        </nav>
+
+        <main>
+            <section id="inicio" class="pagina ativa">
+                <h2>Início</h2>
+                <p>Bem-vindo ao sistema Quim Corp</p>
+                <div class="resumo">
+                    <p>Funcionários: <strong id="totalFuncionarios">0</strong></p>
+                    <p>Produtos: <strong id="totalProdutos">0</strong></p>
+                    <p>Máquinas: <strong id="totalMaquinas">0</strong></p>
+                    <p>Campanhas: <strong id="totalMarketing">0</strong></p>
+                </div>
+            </section>
+
+            <section id="funcionarios" class="pagina">
+                <h2>Funcionários</h2>
+                <form id="formFuncionarios" class="formulario">
+                    <input name="nome" placeholder="Nome" required>
+                    <input name="cargo" placeholder="Cargo" required>
+                    <input name="departamento" placeholder="Departamento" required>
+                    <input name="salario" type="number" min="0" step="0.01" placeholder="Salário" required>
+                    <button>Cadastrar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Nome</th><th>Cargo</th><th>Departamento</th><th>Salário</th><th>Ação</th></tr></thead><tbody id="listaFuncionarios"></tbody></table></div>
+            </section>
+
+            <section id="financeiro" class="pagina">
+                <h2>Financeiro</h2>
+                <div class="resumo">
+                    <p>Receitas: <strong id="totalReceitas">R$ 0,00</strong></p>
+                    <p>Despesas: <strong id="totalDespesas">R$ 0,00</strong></p>
+                    <p>Saldo: <strong id="saldoFinanceiro">R$ 0,00</strong></p>
+                </div>
+                <form id="formFinanceiro" class="formulario">
+                    <input name="descricao" placeholder="Descrição" required>
+                    <select name="tipo" required><option value="">Tipo</option><option>Receita</option><option>Despesa</option></select>
+                    <input name="valor" type="number" min="0.01" step="0.01" placeholder="Valor" required>
+                    <button>Adicionar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Descrição</th><th>Tipo</th><th>Valor</th><th>Ação</th></tr></thead><tbody id="listaFinanceiro"></tbody></table></div>
+            </section>
+
+            <section id="produtos" class="pagina">
+                <h2>Produtos e estoque</h2>
+                <form id="formProdutos" class="formulario">
+                    <input name="nome" placeholder="Produto" required>
+                    <input name="codigo" placeholder="Código" required>
+                    <input name="quantidade" type="number" min="0" placeholder="Quantidade" required>
+                    <input name="minimo" type="number" min="0" placeholder="Estoque mínimo" required>
+                    <button>Cadastrar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Código</th><th>Produto</th><th>Quantidade</th><th>Mínimo</th><th>Status</th><th>Ação</th></tr></thead><tbody id="listaProdutos"></tbody></table></div>
+            </section>
+
+            <section id="producao" class="pagina">
+                <h2>Produção</h2>
+                <form id="formProducao" class="formulario">
+                    <input name="produto" placeholder="Produto" required>
+                    <input name="quantidade" type="number" min="1" placeholder="Quantidade" required>
+                    <input name="data" type="date" required>
+                    <button>Registrar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Produto</th><th>Quantidade</th><th>Data</th><th>Ação</th></tr></thead><tbody id="listaProducao"></tbody></table></div>
+            </section>
+
+            <section id="maquinas" class="pagina">
+                <h2>Máquinas</h2>
+                <form id="formMaquinas" class="formulario">
+                    <input name="nome" placeholder="Nome da máquina" required>
+                    <input name="setor" placeholder="Setor" required>
+                    <select name="situacao" required><option value="">Situação</option><option>Em funcionamento</option><option>Em manutenção</option><option>Inativa</option></select>
+                    <button>Cadastrar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Máquina</th><th>Setor</th><th>Situação</th><th>Ação</th></tr></thead><tbody id="listaMaquinas"></tbody></table></div>
+            </section>
+
+            <section id="turnos" class="pagina">
+                <h2>Turnos</h2>
+                <form id="formTurnos" class="formulario">
+                    <input name="nome" placeholder="Nome do turno" required>
+                    <input name="entrada" type="time" aria-label="Entrada" required>
+                    <input name="saida" type="time" aria-label="Saída" required>
+                    <input name="equipe" placeholder="Equipe" required>
+                    <button>Cadastrar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Turno</th><th>Entrada</th><th>Saída</th><th>Equipe</th><th>Ação</th></tr></thead><tbody id="listaTurnos"></tbody></table></div>
+            </section>
+
+            <section id="marketing" class="pagina">
+                <h2>Marketing</h2>
+                <form id="formMarketing" class="formulario">
+                    <input name="nome" placeholder="Campanha" required>
+                    <input name="canal" placeholder="Canal de divulgação" required>
+                    <input name="data" type="date" required>
+                    <select name="status" required><option value="">Status</option><option>Planejada</option><option>Em andamento</option><option>Concluída</option></select>
+                    <button>Cadastrar</button>
+                </form>
+                <div class="tabela"><table><thead><tr><th>Campanha</th><th>Canal</th><th>Data</th><th>Status</th><th>Ação</th></tr></thead><tbody id="listaMarketing"></tbody></table></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

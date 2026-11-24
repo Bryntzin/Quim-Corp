@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f5f6;
+    color: #263943;
+}
+
+button {
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 5px;
+    background: #198779;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #126d62;
+}
+
+/* LOGIN */
+.login {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.login-caixa {
+    width: 100%;
+    max-width: 350px;
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px #0002;
+}
+
+.login-caixa h1, .login-caixa p {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.login-caixa label {
+    display: block;
+    margin: 12px 0 5px;
+}
+
+.login-caixa input, .formulario input, .formulario select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-caixa button {
+    width: 100%;
+    margin-top: 18px;
+}
+
+#erroLogin {
+    color: #c0392b;
+    margin-top: 12px;
+}
+
+/* SISTEMA */
+header {
+    padding: 18px 25px;
+    background: #183746;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header button {
+    background: #c0392b;
+}
+
+nav {
+    padding: 12px;
+    background: #214655;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav button {
+    background: #327064;
+}
+
+main {
+    padding: 25px;
+}
+
+.pagina {
+    display: none;
+}
+
+.pagina.ativa {
+    display: block;
+}
+
+h2 {
+    margin-bottom: 15px;
+}
+
+.resumo {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.resumo p {
+    padding: 18px;
+    background: white;
+    border-radius: 7px;
+}
+
+.formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 15px;
+    margin: 15px 0;
+    background: white;
+    border-radius: 7px;
+}
+
+.formulario input, .formulario select {
+    flex: 1 1 180px;
+    width: auto;
+}
+
+.tabela {
+    overflow-x: auto;
+    background: white;
+    border-radius: 7px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 550px;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background: #e9eff1;
+}
+
+.excluir {
+    background: #c0392b;
+}
+
+@media (max-width: 600px) {
+    main {
+        padding: 15px;
+    }
+
+    header {
+        padding: 15px;
+    }
+
+    nav button {
+        flex: 1 1 40%;
+    }
+}
